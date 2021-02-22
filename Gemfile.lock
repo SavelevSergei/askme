@@ -157,6 +157,9 @@ GEM
     tilt (2.0.10)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    valid_email2 (3.6.0)
+      activemodel (>= 3.2)
+      mail (~> 2.5)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -187,6 +190,7 @@ DEPENDENCIES
   spring
   sqlite3 (~> 1.4)
   tzinfo-data
+  valid_email2
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
 
