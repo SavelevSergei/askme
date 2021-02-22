@@ -3,7 +3,7 @@ require 'openssl'
 class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
-  VALID_USERNAME_REGEX = /\A[a-zA-Z\d\S]+\z/i
+  VALID_USERNAME_REGEX = /\A[a-z\d\S]+\z/i
 
   attr_accessor :password
 
@@ -20,6 +20,8 @@ class User < ApplicationRecord
   validates_confirmation_of :password
 
   before_save :encrypt_password
+  before_validation :format_username
+  before_validation :format_email
 
   def encrypt_password
     if password.present?
@@ -47,10 +49,16 @@ class User < ApplicationRecord
         password, user.password_salt, ITERATIONS, DIGEST.length, DIGEST
       )
     )
-
     return user if user.password_hash == hashed_password
-
     nil
+  end
+
+  def format_username
+    username&.downcase!
+  end
+
+  def format_email
+    email&.downcase!
   end
 
   def show
