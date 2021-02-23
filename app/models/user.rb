@@ -60,8 +60,4 @@ class User < ApplicationRecord
   def format_email
     email&.downcase!
   end
-
-  def show
-    @hello = 'Привет всем!!!'
-  end
 end
