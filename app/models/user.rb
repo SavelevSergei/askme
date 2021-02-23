@@ -3,7 +3,7 @@ require 'openssl'
 class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
-  VALID_USERNAME_REGEX = /\A[a-z\d\S]+\z/i
+  VALID_USERNAME_REGEX = /\A\w+\z/
 
   attr_accessor :password
 
@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :email, presence: true, 'valid_email_2/email': true
   validates :username, length: { maximum: 40 }, format: { with: VALID_USERNAME_REGEX }
 
-  validates :password, presence: true, on: :create #Валидация email example@email.com
+  validates :password, presence: true, on: :create
 
   validates_confirmation_of :password
 
