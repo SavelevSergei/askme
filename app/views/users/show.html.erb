@@ -31,16 +31,16 @@
       <h1 class="title-small"><%= @questions_count %></h1>
       <p><%= declination(@questions_count, 'вопрос', 'вопроса', 'вопросов') %></p>
     </div>
-<!--    <div class="column-1-3">-->
-<!--      <p>У вас</p>-->
-<!--      <h1 class="title-small"><%#= @questions_count %></h1>-->
-<!--      <p><%#= declination(@answers_count, 'ответ', 'ответа', 'ответов') %></p>-->
-<!--    </div>-->
-<!--    <div class="column-1-3">-->
-<!--      <p>У вас</p>-->
-<!--      <h1 class="title-small"><%#= @questions_count %></h1>-->
-<!--      <p><%#= declination(@no_answer_count, 'без ответа', 'без ответа', 'безответов') %></p>-->
-<!--    </div>-->
+    <div class="column-1-3">
+      <p>У вас</p>
+      <h1 class="title-small"><%= @answers_count %></h1>
+      <p><%= declination(@answers_count, 'ответ', 'ответа', 'ответов') %></p>
+    </div>
+    <div class="column-1-3">
+      <p>У вас</p>
+      <h1 class="title-small"><%= @no_answer_count %></h1>
+      <p><%= declination(@no_answer_count, 'без ответа', 'без ответа', 'безответов') %></p>
+    </div>
   </div>
 </div>
 
