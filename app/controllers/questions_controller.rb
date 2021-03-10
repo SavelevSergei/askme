@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
         format.html { redirect_to user_path(@question.user), notice: "Вопрос задан" }
         format.json { render :show, status: :created, location: @question }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
