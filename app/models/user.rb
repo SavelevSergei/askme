@@ -17,8 +17,6 @@ class User < ApplicationRecord
 
   validates :password, presence: true, on: :create
 
-  validates :profile_color, format: { with: /\A#([a-f\d]{3}){1,2}\z/ }
-
   validates_confirmation_of :password
 
   before_save :encrypt_password
