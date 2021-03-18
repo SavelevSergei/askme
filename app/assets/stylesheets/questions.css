@@ -45,3 +45,8 @@
 .count-question h1{
   color: white;
 }
+
+.question-author {
+  color: #a0a0a0;
+  font-size: 12px;
+}
