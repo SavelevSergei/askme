@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
     @question.author = current_user
 
     respond_to do |format|
-      if @question.save
+      if check_captcha(@question) && @question.save
         format.html { redirect_to user_path(@question.user), notice: "Вопрос задан" }
         format.json { render :show, status: :created, location: @question }
       else
@@ -63,6 +63,14 @@ class QuestionsController < ApplicationController
       params.require(:question).permit(:user_id, :text, :answer)
     else
       params.require(:question).permit(:user_id, :text)
+    end
+  end
+
+  def check_captcha(model)
+    if current_user.present?
+      true
+    else
+      verify_recaptcha(model: model)
     end
   end
 end

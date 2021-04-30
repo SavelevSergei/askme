@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 gem "valid_email2"
+gem 'recaptcha', require: 'recaptcha/rails'
 
 gem 'rails-i18n', '~> 6.0'
 
@@ -40,6 +41,7 @@ group :development, :test do
   gem 'sqlite3', '~> 1.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
 end
 
 group :development do
